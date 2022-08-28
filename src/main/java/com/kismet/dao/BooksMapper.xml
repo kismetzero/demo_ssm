@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--书籍-->
+<mapper namespace="com.kismet.dao.BooksMapper">
+<!--    添加一本书籍-->
+    <insert id="addBooks" parameterType="Books">
+        insert into `demo_ssm`.`books` (`bookName`, `bookCounts`, `detail`)
+        values (#{bookName}, #{bookCounts}, #{detail});
+    </insert>
+
+<!--    根据ID删除一本书籍-->
+    <delete id="deleteBooksById" parameterType="int">
+        delete
+        from `demo_ssm`.`books`
+        where `bookId` = #{bookId};
+    </delete>
+
+<!--    根据ID更新一本书籍-->
+    <update id="updateBooksById" parameterType="Books">
+        update `demo_ssm`.`books`
+        set `bookName`   = #{bookName},
+            `bookCounts` = #{bookCounts},
+            `detail`     = #{detail}
+        where `bookId` = #{bookId};
+    </update>
+
+<!--    获取全部书籍的集合list-->
+    <select id="selectAllBooksList" resultType="Books">
+        select *
+        from `demo_ssm`.`books`
+    </select>
+
+<!--    根据ID获取一本书籍-->
+    <select id="getBooksById" parameterType="int">
+        select *
+        from `demo_ssm`.`books`
+        where `bookId` = #{bookId};
+    </select>
+
+</mapper>
