@@ -11,12 +11,17 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+<!--    扫描controller包-->
     <context:component-scan base-package="com.kismet.controller"/>
+<!--    静态资源过滤-->
     <mvc:default-servlet-handler/>
+<!--    注解驱动-->
     <mvc:annotation-driven/>
 
+<!--    视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
-        <property name="prefix" value="WEB-INF/jsp/"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
 </beans>

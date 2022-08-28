@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("booksService")
 public class BooksServiceImpl implements BooksService{
 
-
+    @Autowired
     private BooksMapper booksMapper;
 
     @Autowired
