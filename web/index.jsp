@@ -17,7 +17,7 @@
   </h1>
 
   <h3>
-    <a href="${pageContext.request.contextPath}/abc/allBooks">书架</a>
+    <a href="${pageContext.request.contextPath}/books/allBooks">书架</a>
   </h3>
   </body>
 </html>
