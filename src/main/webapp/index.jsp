@@ -17,7 +17,7 @@
 
 <h3 class="text-center">
     <a class="btn btn-default" href="${pageContext.request.contextPath}/login" role="button">
-        登录
+        登录（测试用）
     </a>
 </h3>
 

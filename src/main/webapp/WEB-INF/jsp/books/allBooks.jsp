@@ -23,7 +23,7 @@
             <div class="col-md-12 column">
                 <div class="page-header">
                     <h1>
-                        书籍展示列表 <small>by:kismetzero</small>
+                        书籍列表展示 <small>by:kismetzero</small>
                     </h1>
                 </div>
             </div>
