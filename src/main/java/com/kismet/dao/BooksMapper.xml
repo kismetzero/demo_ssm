@@ -5,20 +5,26 @@
 
 <!--书籍-->
 <mapper namespace="com.kismet.dao.BooksMapper">
-<!--    添加一本书籍-->
+    <!--    添加一本书籍-->
     <insert id="addBooks" parameterType="Books">
         insert into `demo_ssm`.`books` (`bookName`, `bookCounts`, `detail`)
         values (#{bookName}, #{bookCounts}, #{detail});
     </insert>
 
-<!--    根据ID删除一本书籍-->
+    <!--    添加一本书籍带ID-->
+    <insert id="addBooksAndId" parameterType="Books">
+        insert into `demo_ssm`.`books` (`bookId`, `bookName`, `bookCounts`, `detail`)
+        values (#{bookId}, #{bookName}, #{bookCounts}, #{detail});
+    </insert>
+
+    <!--    根据ID删除一本书籍-->
     <delete id="deleteBooksById" parameterType="int">
         delete
         from `demo_ssm`.`books`
         where `bookId` = #{bookId};
     </delete>
 
-<!--    根据ID更新一本书籍-->
+    <!--    根据ID更新一本书籍-->
     <update id="updateBooksById" parameterType="Books">
         update `demo_ssm`.`books`
         set `bookName`   = #{bookName},
@@ -27,14 +33,14 @@
         where `bookId` = #{bookId};
     </update>
 
-<!--    获取全部书籍的集合list-->
+    <!--    获取全部书籍的集合list-->
     <select id="selectAllBooksList" resultType="Books">
         select *
         from `demo_ssm`.`books`
     </select>
 
-<!--    根据ID获取一本书籍-->
-    <select id="getBooksById" parameterType="int">
+    <!--    根据ID获取一本书籍-->
+    <select id="selectBooksById" parameterType="int" resultType="Books">
         select *
         from `demo_ssm`.`books`
         where `bookId` = #{bookId};

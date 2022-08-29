@@ -9,6 +9,9 @@ public interface BooksService {
     //添加一本书籍
     int addBooks(Books books);
 
+    //添加一本书籍带ID
+    int addBooksAndId(Books books);
+
     //根据ID删除一本书籍
     int deleteBooksById(int id);
 

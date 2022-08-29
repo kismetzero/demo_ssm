@@ -48,6 +48,7 @@
                         <th>书籍名称</th>
                         <th>书籍数量</th>
                         <th>书籍描述</th>
+                        <th>书籍操作</th>
                     </tr>
                     </thead>
 
@@ -58,6 +59,13 @@
                             <td>${book.bookName}</td>
                             <td>${book.bookCounts}</td>
                             <td>${book.detail}</td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/books/updateBooksPage/${book.bookId}"
+                                class="btn btn-warning" role="button">修改</a>
+                                &nbsp; | &nbsp;
+                                <a href="${pageContext.request.contextPath}/books/deleteBooks/${book.bookId}"
+                                   class="btn btn-danger" role="button">删除</a>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>
