@@ -32,20 +32,20 @@
     <div class="col-md-4 col-md-offset-2">
       <form action="${pageContext.request.contextPath}/books/updateBooks" method="post">
         <div class="form-group">
-          <label>书籍编号：${QBook.bookId}</label>
-          <input type="hidden" name="bookId" class="form-control" value="${QBook.bookId}">
+          <label for="bId">书籍编号：${QBook.bookId}</label>
+          <input type="hidden" name="bookId" id="bId" class="form-control" value="${QBook.bookId}">
         </div>
         <div class="form-group">
-          <label>书籍名称：</label>
-          <input type="text" name="bookName" class="form-control" value="${QBook.bookName}" required>
+          <label for="bName">书籍名称：</label>
+          <input type="text" name="bookName" id="bName" class="form-control" value="${QBook.bookName}" required>
         </div>
         <div class="form-group">
-          <label>书籍数量：</label>
-          <input type="text" name="bookCounts" class="form-control" value="${QBook.bookCounts}" required>
+          <label for="bCounts">书籍数量：</label>
+          <input type="text" name="bookCounts" id="bCounts" class="form-control" value="${QBook.bookCounts}" required>
         </div>
         <div class="form-group">
-          <label>书籍描述：</label>
-          <textarea name="detail" class="form-control"  required style="resize: none">${QBook.detail}</textarea>
+          <label for="bDetail">书籍描述：</label>
+          <textarea name="detail" id="bDetail" class="form-control"  required style="resize: none">${QBook.detail}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">提交</button>
         <button type="reset" class="btn btn-danger">重置</button>

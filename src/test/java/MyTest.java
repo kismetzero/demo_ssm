@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.List;
 
 public class MyTest {
-    @Test
+//    @Test
     public void test01() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-application.xml");
         BooksService booksService = context.getBean("booksService", BooksService.class);

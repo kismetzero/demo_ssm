@@ -30,13 +30,22 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <a href="${pageContext.request.contextPath}/books/addBooksPage"
                    class="btn btn-primary" role="button">添加书籍</a>
+
+                <form action="#" method="post" class="form-inline" style="float: right">
+                    <div class="form-group">
+                        <label for="select"></label>
+                        <input type="text" name="selectBooksName" id="select" class="form-control"
+                               placeholder="请输入要搜索的书籍名称" style="width: 300px">
+                    </div>
+                    <button type="submit" class="btn btn-info">搜索</button>
+                </form>
             </div>
         </div>
 
-        <br>
+        <%--        <br>--%>
 
         <div class="row">
             <div class="col-md-12">
@@ -61,7 +70,7 @@
                             <td>${book.detail}</td>
                             <td>
                                 <a href="${pageContext.request.contextPath}/books/updateBooksPage/${book.bookId}"
-                                class="btn btn-warning" role="button">修改</a>
+                                   class="btn btn-warning" role="button">修改</a>
                                 &nbsp; | &nbsp;
                                 <a href="${pageContext.request.contextPath}/books/deleteBooks/${book.bookId}"
                                    class="btn btn-danger" role="button">删除</a>
