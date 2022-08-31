@@ -1,6 +1,7 @@
 package com.kismet.service;
 
 import com.kismet.pojo.Books;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,4 +24,7 @@ public interface BooksService {
 
     //根据ID获取一本书籍
     Books selectBooksById(int id);
+
+    //根据书名模糊查询书籍集合
+    List<Books> selectBooksLikeName(String likeName);
 }

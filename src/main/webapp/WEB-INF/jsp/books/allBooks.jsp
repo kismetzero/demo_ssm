@@ -34,10 +34,10 @@
                 <a href="${pageContext.request.contextPath}/books/addBooksPage"
                    class="btn btn-primary" role="button">添加书籍</a>
 
-                <form action="#" method="post" class="form-inline" style="float: right">
+                <form action="${pageContext.request.contextPath}/books/selectBooks" method="post" class="form-inline" style="float: right">
                     <div class="form-group">
                         <label for="select"></label>
-                        <input type="text" name="selectBooksName" id="select" class="form-control"
+                        <input type="text" name="likeName" id="select" class="form-control"
                                placeholder="请输入要搜索的书籍名称" style="width: 300px">
                     </div>
                     <button type="submit" class="btn btn-info">搜索</button>
@@ -62,7 +62,7 @@
                     </thead>
 
                     <tbody>
-                    <c:forEach var="book" items="${allBooksList}">
+                    <c:forEach var="book" items="${booksList}">
                         <tr>
                             <td>${book.bookId}</td>
                             <td>${book.bookName}</td>

@@ -15,13 +15,17 @@ import java.util.List;
 @RequestMapping("/books")
 public class BooksController {
 
-    @Autowired
     private BooksService booksService;
+
+    @Autowired
+    public void setBooksService(BooksService booksService) {
+        this.booksService = booksService;
+    }
 
     @RequestMapping("/allBooks")
     public String allBooksList(Model model) {
         List<Books> allBooksList = booksService.selectAllBooksList();
-        model.addAttribute("allBooksList", allBooksList);
+        model.addAttribute("booksList", allBooksList);
         return "books/allBooks";
     }
 
@@ -32,7 +36,7 @@ public class BooksController {
 
     @PostMapping("/addBooks")
     public String addBooks(Books books) {
-        System.out.println("[INFO] addBooks ===> " + books);
+        //System.out.println("[INFO] addBooks ===> " + books);
         if (books.getBookId() == 0) {
             booksService.addBooks(books);
         } else {
@@ -58,6 +62,13 @@ public class BooksController {
     public String updateBooks(Books books) {
         booksService.updateBooksById(books);
         return "redirect:/books/allBooks";
+    }
+
+    @PostMapping("/selectBooks")
+    public String selectBooksLikeName(String likeName, Model model) {
+        List<Books> booksList = booksService.selectBooksLikeName(likeName);
+        model.addAttribute("booksList", booksList);
+        return "books/allBooks";
     }
 
 }

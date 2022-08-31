@@ -46,4 +46,11 @@
         where `bookId` = #{bookId};
     </select>
 
+    <!--    根据书名模糊查询书籍集合-->
+    <select id="selectBooksLikeName" parameterType="String" resultType="Books">
+        select *
+        from `demo_ssm`.`books`
+        where `bookName` like '%' #{likeName} '%'
+    </select>
+
 </mapper>

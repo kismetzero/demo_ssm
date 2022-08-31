@@ -10,7 +10,6 @@ import java.util.List;
 @Service("booksService")
 public class BooksServiceImpl implements BooksService{
 
-    @Autowired
     private BooksMapper booksMapper;
 
     @Autowired
@@ -46,5 +45,10 @@ public class BooksServiceImpl implements BooksService{
     @Override
     public Books selectBooksById(int id) {
         return booksMapper.selectBooksById(id);
+    }
+
+    @Override
+    public List<Books> selectBooksLikeName(String likeName) {
+        return booksMapper.selectBooksLikeName(likeName);
     }
 }

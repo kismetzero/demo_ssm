@@ -25,4 +25,7 @@ public interface BooksMapper {
     //根据ID获取一本书籍
     Books selectBooksById(@Param("bookId") int id);
 
+    //根据书名模糊查询书籍集合
+    List<Books> selectBooksLikeName(@Param("likeName") String likeName);
+
 }
