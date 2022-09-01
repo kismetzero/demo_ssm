@@ -44,13 +44,13 @@ public class BooksController {
         } else {
             booksService.addBooksAndId(books);
         }
-        return "books/booksListPage";
+        return "redirect:/books/booksIndex";
     }
 
     @RequestMapping("/deleteBooks/{bookId}")
     public String deleteBooks(@PathVariable("bookId") int id) {
         booksService.deleteBooksById(id);
-        return "books/booksListPage";
+        return "redirect:/books/booksIndex";
     }
 
     @RequestMapping("/updateBooksPage/{bookId}")
@@ -63,7 +63,7 @@ public class BooksController {
     @PostMapping("/updateBooks")
     public String updateBooks(Books books) {
         booksService.updateBooksById(books);
-        return "books/booksListPage";
+        return "redirect:/books/booksIndex";
     }
 
     @PostMapping("/selectBooks")
