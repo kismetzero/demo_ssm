@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -22,11 +24,11 @@ public class BooksController {
         this.booksService = booksService;
     }
 
-    @RequestMapping("/allBooks")
-    public String allBooksList(Model model) {
+    @RequestMapping("/booksIndex")
+    public String toBooksIndex(Model model) {
         List<Books> allBooksList = booksService.selectAllBooksList();
         model.addAttribute("booksList", allBooksList);
-        return "books/allBooks";
+        return "books/booksListPage";
     }
 
     @RequestMapping("/addBooksPage")
@@ -42,13 +44,13 @@ public class BooksController {
         } else {
             booksService.addBooksAndId(books);
         }
-        return "redirect:/books/allBooks";
+        return "books/booksListPage";
     }
 
     @RequestMapping("/deleteBooks/{bookId}")
     public String deleteBooks(@PathVariable("bookId") int id) {
         booksService.deleteBooksById(id);
-        return "redirect:/books/allBooks";
+        return "books/booksListPage";
     }
 
     @RequestMapping("/updateBooksPage/{bookId}")
@@ -61,14 +63,23 @@ public class BooksController {
     @PostMapping("/updateBooks")
     public String updateBooks(Books books) {
         booksService.updateBooksById(books);
-        return "redirect:/books/allBooks";
+        return "books/booksListPage";
     }
 
     @PostMapping("/selectBooks")
     public String selectBooksLikeName(String likeName, Model model) {
         List<Books> booksList = booksService.selectBooksLikeName(likeName);
         model.addAttribute("booksList", booksList);
-        return "books/allBooks";
+        return "books/booksListPage";
     }
 
+    @PostMapping("/selectBooksAjax")
+    public void ajaxSelectBooksLikeName(String likeName, HttpServletResponse response) {
+        List<Books> booksList = booksService.selectBooksLikeName(likeName);
+        try {
+            response.getWriter().print(booksList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -23,7 +23,7 @@
 </h3>
 
 <h3 class="text-center">
-    <a class="btn btn-default" href="${pageContext.request.contextPath}/books/allBooks" role="button">
+    <a class="btn btn-default" href="${pageContext.request.contextPath}/books/booksIndex" role="button">
         书架
     </a>
 </h3>

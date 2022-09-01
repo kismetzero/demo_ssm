@@ -13,6 +13,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <title>书籍展示</title>
+    <script>
+        $(function ajaxSelect() {
+            $.ajax({
+                type : "post",
+                url  : "/books/selectBooksAjax",
+                data : {"likeName":"java"},
+                success : function (data) {
+                    console.log(data);
+                },
+                error : function (data) {
+                    console.log(data);
+                },
+            })
+        })
+    </script>
 </head>
 <body>
 
